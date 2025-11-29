@@ -12,6 +12,8 @@ bfenv/
 # Logs
 *.log
 app.log
+test_output*.txt
+
 
 # OS
 .DS_Store
