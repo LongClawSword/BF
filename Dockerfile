@@ -29,4 +29,5 @@ COPY . .
 EXPOSE 8000
 
 # Use Gunicorn with Uvicorn workers for production
-CMD ["gunicorn", "app:app", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000", "--timeout", "120"]
+# Using 1 worker to avoid OOM on free tier (PaddleOCR is memory intensive)
+CMD ["gunicorn", "app:app", "--workers", "1", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000", "--timeout", "120"]
